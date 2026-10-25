@@ -65,6 +65,8 @@ const S = {
 };
 import ext from "./scenes3d_ext.js";
 Object.assign(S, ext(mat, label, rnd));
+let MODELS;
+async function modelFor(key) { if (!MODELS) { try { MODELS = await (await fetch("models/models.json")).json(); } catch { MODELS = {}; } } return MODELS[key]; }
 export const hasScene = k => !!S[k];
 export const sceneInfo = k => S[k];
 export async function mount(host, key) {
@@ -75,7 +77,16 @@ export async function mount(host, key) {
   host.innerHTML = ""; host.appendChild(r.domElement); r.domElement.setAttribute("role", "img"); r.domElement.setAttribute("aria-label", def.ar);
   r.setPixelRatio(Math.min(devicePixelRatio, 2)); const sc = new T.Scene(); const cam = new T.PerspectiveCamera(45, 1, .1, 100); cam.position.set(0, 1.5, 9);
   sc.add(new T.HemisphereLight(0xffffff, 0x445566, 1.1)); const dl = new T.DirectionalLight(0xffffff, 2.2); dl.position.set(4, 6, 5); sc.add(dl);
-  const g = new T.Group(); sc.add(g); const upd = def.build(T, g);
+  const g = new T.Group(); sc.add(g); let upd = def.build(T, g);
+  const mdl = await modelFor(key);
+  if (mdl) { try {
+    const { GLTFLoader } = await import(`${CDN}/examples/jsm/loaders/GLTFLoader.js`);
+    const gltf = await new GLTFLoader().loadAsync(mdl.file); const m = gltf.scene;
+    const box = new T.Box3().setFromObject(m), size = box.getSize(new T.Vector3()), ctr = box.getCenter(new T.Vector3());
+    const k = 6.5 / Math.max(size.x, size.y, size.z, 1e-6); m.scale.setScalar(k); m.position.sub(ctr.multiplyScalar(k));
+    while (g.children.length) g.remove(g.children[0]); g.add(m); sc.add(new T.AmbientLight(0xffffff, 1.2)); upd = () => {};
+    if (mdl.credit && host.parentNode) { const c = document.createElement("p"); c.className = "muted s3cr"; c.style.fontSize = "13px"; c.dir = "ltr"; c.textContent = mdl.credit; host.parentNode.appendChild(c); }
+  } catch (e) { console.warn("GLB فشل، سيُستخدم المجسم المبسّط", e); } }
   const ctl = new OrbitControls(cam, r.domElement); ctl.enableDamping = true; ctl.enablePan = false; ctl.minDistance = 4; ctl.maxDistance = 16;
   const calm = matchMedia("(prefers-reduced-motion: reduce)").matches; ctl.autoRotate = !calm; ctl.autoRotateSpeed = .8;
   const fit = () => { const w = host.clientWidth || 600, h = Math.max(300, Math.min(480, w * .72)); r.setSize(w, h, false); r.domElement.style.height = h + "px"; cam.aspect = w / h; cam.updateProjectionMatrix(); }; fit(); const ro = new ResizeObserver(fit); ro.observe(host);
