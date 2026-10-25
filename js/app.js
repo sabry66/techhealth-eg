@@ -346,4 +346,4 @@ function searchPage(m, qs) {
 
 /* ---------- تشغيل ---------- */
 window.addEventListener("hashchange", route);
-(async () => { shell(); await S.init(); paintAcct(); route(); })();
+(async () => { shell(); route(); await S.init(); paintAcct(); route(); })();
