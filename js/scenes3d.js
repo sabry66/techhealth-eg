@@ -83,7 +83,7 @@ export async function mount(host, key) {
     const { GLTFLoader } = await import(`${CDN}/examples/jsm/loaders/GLTFLoader.js`);
     const gltf = await new GLTFLoader().loadAsync(mdl.file); const m = gltf.scene;
     const box = new T.Box3().setFromObject(m), size = box.getSize(new T.Vector3()), ctr = box.getCenter(new T.Vector3());
-    const k = 6.5 / Math.max(size.x, size.y, size.z, 1e-6); m.scale.setScalar(k); m.position.sub(ctr.multiplyScalar(k));
+    const k = 6.5 / Math.max(size.x, size.y, size.z, 1e-6); m.scale.setScalar(k * (mdl.scale || 1)); m.position.sub(ctr.multiplyScalar(k * (mdl.scale || 1)));
     while (g.children.length) g.remove(g.children[0]); g.add(m); sc.add(new T.AmbientLight(0xffffff, 1.2)); upd = () => {};
     if (mdl.credit && host.parentNode) { const c = document.createElement("p"); c.className = "muted s3cr"; c.style.fontSize = "13px"; c.dir = "ltr"; c.textContent = mdl.credit; host.parentNode.appendChild(c); }
   } catch (e) { console.warn("GLB فشل، سيُستخدم المجسم المبسّط", e); } }

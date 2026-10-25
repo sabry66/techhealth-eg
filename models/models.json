@@ -2,5 +2,14 @@
  "rbc": {
   "file": "models/rbc.glb",
   "credit": "3D model: Red Blood Cells (Erythrocytes) by _Bonehead14, CC BY 4.0 (Sketchfab)"
+ },
+ "bacteria": {
+  "file": "models/bacteria.glb",
+  "credit": "3D model: Bacterium by andrewfrueh, CC BY 4.0 (Sketchfab)",
+  "scale": 1.7
+ },
+ "dna": {
+  "file": "models/dna.glb",
+  "credit": "3D model: B-DNA ribbon (backbone) + sticks (bases) by gvsuchem, CC BY 4.0 (Sketchfab)"
  }
 }
