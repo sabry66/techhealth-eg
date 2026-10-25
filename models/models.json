@@ -11,5 +11,9 @@
  "dna": {
   "file": "models/dna.glb",
   "credit": "3D model: B-DNA ribbon (backbone) + sticks (bases) by gvsuchem, CC BY 4.0 (Sketchfab)"
+ },
+ "microscope": {
+  "file": "models/microscope.glb",
+  "credit": "3D model: Microscope by Eugen Vahrushin, CC BY 4.0 (Sketchfab)"
  }
 }
