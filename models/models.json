@@ -28,5 +28,9 @@
   "file": "models/bone.glb",
   "credit": "3D model: Skeleton by Diego Luján García, CC BY 4.0 (Sketchfab)",
   "scale": 1.35
+ },
+ "organ": {
+  "file": "models/organ.glb",
+  "credit": "3D model: Realistic Human Heart by neshallads, CC BY 4.0 (Sketchfab)"
  }
 }
