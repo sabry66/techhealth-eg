@@ -7,9 +7,9 @@ export const CONFIG = {
   tagline: "مناهج المختبرات والأشعة، بالشرح والخرائط الذهنية والاختبارات",
   google: false, // اجعلها true بعد تفعيل Google في Authentication
   firebase: {
-    apiKey: "PUT_API_KEY",
-    authDomain: "PUT_PROJECT_ID.firebaseapp.com",
-    projectId: "PUT_PROJECT_ID",
-    appId: "PUT_APP_ID"
+    apiKey: "AIzaSyDSGp75kfz2CgRLdCAXuJIlJWUL6lEd0fM",
+    authDomain: "techhealth-eg.firebaseapp.com",
+    projectId: "techhealth-eg",
+    appId: "1:201991679367:web:151981d6f6db061c71f722"
   }
 };
