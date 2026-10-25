@@ -33,7 +33,7 @@ function shell() {
   $("#app").innerHTML = `
   <a class="skip" href="#main">تخطَّ إلى المحتوى</a>
   <header class="top"><div class="wrap bar">
-    <a class="logo" href="#/" aria-label="${esc(CONFIG.siteName)}"><img class="mark" src="logo.png" alt="" width="28" height="28">${esc(CONFIG.siteName)}</a>
+    <a class="logo" href="#/" aria-label="${esc(CONFIG.siteName)}"><img class="mark" src="logo.png" alt="" width="38" height="38">${esc(CONFIG.siteName)}</a>
     <nav class="nav" aria-label="التنقل الرئيسي">${navLinks()}</nav>
     <div class="tools">
       <button class="icbtn" id="themeBtn" aria-label="تبديل المظهر">${ic("moon")}</button>
