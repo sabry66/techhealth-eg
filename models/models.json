@@ -32,5 +32,17 @@
  "organ": {
   "file": "models/organ.glb",
   "credit": "3D model: Realistic Human Heart by neshallads, CC BY 4.0 (Sketchfab)"
+ },
+ "mri": {
+  "file": "models/mri.glb",
+  "credit": "3D model: MRI by wazerh36, CC BY 4.0 (Sketchfab)",
+  "light": 0.0,
+  "scale": 0.9
+ },
+ "ct": {
+  "file": "models/mri.glb",
+  "credit": "3D model: MRI (scanner) by wazerh36, CC BY 4.0 (Sketchfab)",
+  "light": 0.0,
+  "scale": 0.9
  }
 }
