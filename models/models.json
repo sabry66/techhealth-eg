@@ -19,5 +19,14 @@
  "virus": {
   "file": "models/virus.glb",
   "credit": "3D model: Corona Virus COVID-19 by Fantom Matter, CC BY 4.0 (Sketchfab)"
+ },
+ "xraytube": {
+  "file": "models/xray.glb",
+  "credit": "3D model: Voxel University Kit: X-Ray Machine by fullstopstudios, CC BY 4.0 (Sketchfab)"
+ },
+ "bone": {
+  "file": "models/bone.glb",
+  "credit": "3D model: Skeleton by Diego Luján García, CC BY 4.0 (Sketchfab)",
+  "scale": 1.35
  }
 }
